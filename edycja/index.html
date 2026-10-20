@@ -38,7 +38,7 @@ function init(){if(started)return;started=true;
 fetch('../index.html',{cache:'no-cache'}).then(function(r){return r.text()}).then(function(h){
  var d=new DOMParser().parseFromString(h,'text/html'),m={},ids=[];
  d.querySelectorAll('.gallery li img').forEach(function(im){var k=im.getAttribute('src').match(/img\/(.+)-480/)[1];m[k]=im.getAttribute('src');ids.push(k)});
- return fetch('../order.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return[]}).then(function(o){
+ return fetch('https://api.github.com/repos/'+REPO+'/contents/order.json?ref='+BR+'&t='+Date.now(),{cache:'no-store',headers:{Authorization:'Bearer '+tk(),Accept:'application/vnd.github.raw+json'}}).then(function(r){return r.ok?r.json():[]}).catch(function(){return[]}).then(function(o){
   var ord=o.filter(function(k){return m[k]});ids.forEach(function(k){if(ord.indexOf(k)<0)ord.push(k)});
   ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})})}
 var cur=null;
@@ -53,8 +53,8 @@ document.getElementById('save').onclick=function(){
  if(!tk()){ui();msg.textContent='Najpierw token';return}
  var order=[].map.call(list.children,function(li){return li.dataset.id}),url='https://api.github.com/repos/'+REPO+'/contents/order.json',H={Authorization:'Bearer '+tk(),Accept:'application/vnd.github+json'};
  msg.textContent='Zapisuję…';
- fetch(url+'?ref='+BR,{headers:H}).then(function(r){return r.ok?r.json():null}).then(function(j){
+ fetch(url+'?ref='+BR+'&t='+Date.now(),{headers:H,cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
   var b={message:'Kolejnosc zdjec (edycja)',branch:BR,content:btoa(JSON.stringify(order))};if(j&&j.sha)b.sha=j.sha;
   return fetch(url,{method:'PUT',headers:H,body:JSON.stringify(b)})}).then(function(r){
-  msg.textContent=r.ok?'Zapisano. Strona odświeży się za ok. minutę.':'Błąd '+r.status+(r.status==401?' (zły token)':r.status==403||r.status==404?' (brak uprawnień tokena)':'')}).catch(function(){msg.textContent='Brak sieci'})};
+  msg.textContent=r.ok?'Zapisano ✓ Na stronie głównej za 1–2 min.':'Błąd '+r.status+(r.status==401?' (zły token)':r.status==403||r.status==404?' (brak uprawnień tokena)':'')}).catch(function(){msg.textContent='Brak sieci'})};
 </script></body></html>
