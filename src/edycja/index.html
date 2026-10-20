@@ -19,22 +19,28 @@ button.s{background:transparent;color:inherit}
 </style></head><body>
 <h1>Kolejność zdjęć</h1>
 <div id="tok" hidden><p>Wklej token GitHub (zapisze się tylko w tej przeglądarce):</p><input id="t" type="password" autocomplete="off" placeholder="github_pat_..."><p><button id="ts" class="p">Zapisz token</button></p></div>
-<p>Przytrzymaj ☰ i przeciągnij zdjęcie w górę lub w dół. Potem „Zapisz”.</p>
+<div id="app" hidden><p>Przytrzymaj ☰ i przeciągnij zdjęcie w górę lub w dół. Potem „Zapisz”.</p>
 <ul id="list"></ul>
-<div id="bar"><button class="p" id="save">Zapisz kolejność</button><button class="s" id="out">Wyloguj</button><span id="msg"></span></div>
+<div id="bar"><button class="p" id="save">Zapisz kolejność</button><button class="s" id="out">Wyloguj</button><span id="msg"></span></div></div><p id="err"></p>
 <script>
 var REPO='ppolanowski/portfolio-aktor',BR='gh-pages',list=document.getElementById('list'),msg=document.getElementById('msg');
 function tk(){return localStorage.getItem('gh_tok')}
-function ui(){document.getElementById('tok').hidden=!!tk()}
+var started=false;
+function ui(){var ok=!!tk();document.getElementById('tok').hidden=ok;document.getElementById('app').hidden=true;if(!ok)return;
+ fetch('https://api.github.com/repos/'+REPO,{headers:{Authorization:'Bearer '+tk()}}).then(function(r){return r.ok?r.json():null}).then(function(j){
+  if(j&&j.permissions&&j.permissions.push){document.getElementById('app').hidden=false;document.getElementById('err').textContent='';init()}
+  else{localStorage.removeItem('gh_tok');document.getElementById('tok').hidden=false;document.getElementById('err').textContent='Token nie działa albo nie ma uprawnień.'}
+ }).catch(function(){document.getElementById('err').textContent='Brak sieci'})}
 document.getElementById('ts').onclick=function(){var v=document.getElementById('t').value.trim();if(v){localStorage.setItem('gh_tok',v);document.getElementById('t').value='';ui()}};
-document.getElementById('out').onclick=function(){localStorage.removeItem('gh_tok');ui()};
+document.getElementById('out').onclick=function(){localStorage.removeItem('gh_tok');location.reload()};
 ui();
+function init(){if(started)return;started=true;
 fetch('../index.html',{cache:'no-cache'}).then(function(r){return r.text()}).then(function(h){
  var d=new DOMParser().parseFromString(h,'text/html'),m={},ids=[];
  d.querySelectorAll('.gallery li img').forEach(function(im){var k=im.getAttribute('src').match(/img\/(.+)-480/)[1];m[k]=im.getAttribute('src');ids.push(k)});
  return fetch('../order.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():[]}).catch(function(){return[]}).then(function(o){
   var ord=o.filter(function(k){return m[k]});ids.forEach(function(k){if(ord.indexOf(k)<0)ord.push(k)});
-  ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})});
+  ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})})}
 var cur=null;
 list.addEventListener('pointerdown',function(e){var h=e.target.closest('.h');if(!h)return;cur=h.parentNode;cur.classList.add('drag');h.setPointerCapture(e.pointerId);e.preventDefault()});
 list.addEventListener('pointermove',function(e){if(!cur)return;
