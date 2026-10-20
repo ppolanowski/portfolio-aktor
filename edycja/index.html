@@ -20,7 +20,7 @@ button.s{background:transparent;color:inherit}
 </style></head><body>
 <h1>Kolejność zdjęć</h1>
 <div id="tok" hidden><p>Wklej token GitHub (zapisze się tylko w tej przeglądarce):</p><input id="t" type="password" autocomplete="off" placeholder="github_pat_..."><p><button id="ts" class="p">Zapisz token</button></p></div>
-<div id="app" hidden><p>Przesuwaj strzałkami ▲▼ (⤒ = na sam początek) albo przeciągnij za ☰. Pierwsze zdjęcie na liście (★) = główne zdjęcie u góry strony. Na koniec „Zapisz kolejność”.</p>
+<div id="app" hidden><p>Przeciągnij zdjęcie za ☰. Pierwsze zdjęcie na liście (★) = główne zdjęcie u góry strony. Na koniec „Zapisz kolejność”.</p>
 <ul id="list"></ul>
 <div id="bar"><button class="p" id="save">Zapisz kolejność</button><button class="s" id="out">Wyloguj</button><span id="msg"></span></div></div><p id="err"></p>
 <script>
@@ -42,7 +42,7 @@ fetch('../index.html',{cache:'no-cache'}).then(function(r){return r.text()}).the
  d.querySelectorAll('.gallery li img').forEach(function(im){var k=im.getAttribute('src').match(/img\/(.+)-480/)[1];m[k]=im.getAttribute('src');ids.push(k)});
  return fetch('https://api.github.com/repos/'+REPO+'/contents/order.json?ref='+BR+'&t='+Date.now(),{cache:'no-store',headers:{Authorization:'Bearer '+tk(),Accept:'application/vnd.github.raw+json'}}).then(function(r){return r.ok?r.json():[]}).catch(function(){return[]}).then(function(o){
   var hero=Array.isArray(o)?HK:(o.hero||HK),oo=Array.isArray(o)?o:(o.order||[]);var ord=[hero].concat(oo.filter(function(k){return m[k]&&k!==hero}));ids.forEach(function(k){if(ord.indexOf(k)<0)ord.push(k)});
-  ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><button class="m" data-d="top" aria-label="Na górę">⤒</button><button class="m" data-d="up" aria-label="W górę">▲</button><button class="m" data-d="dn" aria-label="W dół">▼</button><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})})}
+  ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})})}
 list.addEventListener('click',function(e){var b=e.target.closest('.m');if(!b)return;var li=b.closest('li'),d=b.dataset.d;
  if(d=='top')list.insertBefore(li,list.firstChild);else if(d=='up'&&li.previousElementSibling)list.insertBefore(li,li.previousElementSibling);else if(d=='dn'&&li.nextElementSibling)list.insertBefore(li.nextElementSibling,li);
  li.classList.add('hit');setTimeout(function(){li.classList.remove('hit')},400);li.scrollIntoView({block:'nearest'});msg.textContent='Niezapisane zmiany'});
