@@ -13,13 +13,14 @@ button.s{background:transparent;color:inherit}
 #list li.drag{opacity:.6;outline:2px solid #c33}
 #list img{width:48px;height:64px;object-fit:cover;border-radius:4px}
 #list .n{flex:1;font-size:.85rem;color:#888}
+#list .m{min-width:44px;padding:.4rem;background:transparent;color:inherit;border-color:#8888}#list li.hit{outline:2px solid #3a3}
 #list .h{touch-action:none;font-size:1.6rem;padding:.4rem .8rem;cursor:grab;user-select:none}
 #bar{position:fixed;left:0;right:0;bottom:0;padding:.7rem 1rem;background:Canvas;border-top:1px solid #8885;display:flex;gap:.5rem;align-items:center}
 #bar button.p{flex:1}#msg{font-size:.9rem}
 </style></head><body>
 <h1>Kolejność zdjęć</h1>
 <div id="tok" hidden><p>Wklej token GitHub (zapisze się tylko w tej przeglądarce):</p><input id="t" type="password" autocomplete="off" placeholder="github_pat_..."><p><button id="ts" class="p">Zapisz token</button></p></div>
-<div id="app" hidden><p>Przytrzymaj ☰ i przeciągnij zdjęcie w górę lub w dół. Potem „Zapisz”.</p>
+<div id="app" hidden><p>Przesuwaj strzałkami ▲▼ (⤒ = na sam początek) albo przeciągnij za ☰. Na koniec „Zapisz kolejność”.</p>
 <ul id="list"></ul>
 <div id="bar"><button class="p" id="save">Zapisz kolejność</button><button class="s" id="out">Wyloguj</button><span id="msg"></span></div></div><p id="err"></p>
 <script>
@@ -40,14 +41,17 @@ fetch('../index.html',{cache:'no-cache'}).then(function(r){return r.text()}).the
  d.querySelectorAll('.gallery li img').forEach(function(im){var k=im.getAttribute('src').match(/img\/(.+)-480/)[1];m[k]=im.getAttribute('src');ids.push(k)});
  return fetch('https://api.github.com/repos/'+REPO+'/contents/order.json?ref='+BR+'&t='+Date.now(),{cache:'no-store',headers:{Authorization:'Bearer '+tk(),Accept:'application/vnd.github.raw+json'}}).then(function(r){return r.ok?r.json():[]}).catch(function(){return[]}).then(function(o){
   var ord=o.filter(function(k){return m[k]});ids.forEach(function(k){if(ord.indexOf(k)<0)ord.push(k)});
-  ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})})}
+  ord.forEach(function(k){var li=document.createElement('li');li.dataset.id=k;li.innerHTML='<img alt="" src="../'+m[k]+'"><span class="n">'+k+'</span><button class="m" data-d="top" aria-label="Na górę">⤒</button><button class="m" data-d="up" aria-label="W górę">▲</button><button class="m" data-d="dn" aria-label="W dół">▼</button><span class="h" aria-label="Przeciągnij">☰</span>';list.appendChild(li)})})})}
+list.addEventListener('click',function(e){var b=e.target.closest('.m');if(!b)return;var li=b.closest('li'),d=b.dataset.d;
+ if(d=='top')list.insertBefore(li,list.firstChild);else if(d=='up'&&li.previousElementSibling)list.insertBefore(li,li.previousElementSibling);else if(d=='dn'&&li.nextElementSibling)list.insertBefore(li.nextElementSibling,li);
+ li.classList.add('hit');setTimeout(function(){li.classList.remove('hit')},400);li.scrollIntoView({block:'nearest'});msg.textContent='Niezapisane zmiany'});
 var cur=null;
 list.addEventListener('pointerdown',function(e){var h=e.target.closest('.h');if(!h)return;cur=h.parentNode;cur.classList.add('drag');h.setPointerCapture(e.pointerId);e.preventDefault()});
 list.addEventListener('pointermove',function(e){if(!cur)return;
  if(e.clientY<90)scrollBy(0,-14);else if(e.clientY>innerHeight-110)scrollBy(0,14);
  var t=document.elementFromPoint(list.getBoundingClientRect().left+20,e.clientY),li=t&&t.closest&&t.closest('#list li');
  if(li&&li!==cur){var r=li.getBoundingClientRect();list.insertBefore(cur,e.clientY<r.top+r.height/2?li:li.nextSibling)}});
-function end(){if(cur){cur.classList.remove('drag');cur=null}}
+function end(){if(cur){cur.classList.remove('drag');cur=null;msg.textContent='Niezapisane zmiany'}}
 list.addEventListener('pointerup',end);list.addEventListener('pointercancel',end);
 document.getElementById('save').onclick=function(){
  if(!tk()){ui();msg.textContent='Najpierw token';return}
