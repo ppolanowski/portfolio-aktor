@@ -60,6 +60,20 @@ section.alt{background:var(--bg-alt)}
 .credits thead th{font-size:.85rem;color:var(--muted);font-weight:600}
 .credits tbody tr:hover{background:var(--bg)}
 .scroll{overflow-x:auto}
+@media (max-width:640px){
+.credits thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.credits,.credits tbody,.credits tr,.credits td{display:block;width:100%}
+.credits caption{display:block}
+.credits tr{padding:.85rem 0;border-bottom:1px solid var(--line)}
+.credits td{border:0;padding:.1rem 0}
+.credits td:first-child{font-weight:700;font-size:1.05rem;padding-bottom:.25rem}
+.credits td:not(:first-child)::before{content:attr(data-label) ": ";color:var(--muted);font-size:.85rem}
+.credits td.empty{display:none}
+.spec th,.spec td{display:block;width:100%;padding:0;border:0}
+.spec tr{display:block;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.spec th{font-size:.8rem}
+}
+
 .gallery{display:grid;gap:var(--s0);grid-template-columns:repeat(auto-fill,minmax(max(9rem,22%),1fr));grid-auto-flow:dense;list-style:none;padding:0;margin:0}
 .gallery li.wide{grid-column:span 2}
 .gallery figure{margin:0}
@@ -153,18 +167,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
           <caption>Film i&nbsp;serial</caption>
           <thead><tr><th scope="col">Produkcja</th><th scope="col">Rola</th><th scope="col">Produkcja / reżyseria</th></tr></thead>
           <tbody>
-            <tr><td><cite>Sløborn</cite> (serial)</td><td>Żołnierz, epizod</td><td>ZDF, reż. Christian Alvart</td></tr>
-            <tr><td><cite>Sprawiedliwi – Wydział Kryminalny</cite></td><td>Epizod</td><td>serial TV</td></tr>
-            <tr><td><cite>Furioza</cite></td><td>Statysta</td><td>film kinowy</td></tr>
+            <tr><td data-label="Produkcja"><cite>Sløborn</cite> (serial)</td><td data-label="Rola">Żołnierz, epizod</td><td data-label="Produkcja / reżyseria">ZDF, reż. Christian Alvart</td></tr>
+            <tr><td data-label="Produkcja"><cite>Sprawiedliwi – Wydział Kryminalny</cite></td><td data-label="Rola">Epizod</td><td data-label="Produkcja / reżyseria">serial TV</td></tr>
+            <tr><td data-label="Produkcja"><cite>Furioza</cite></td><td data-label="Rola">Statysta</td><td data-label="Produkcja / reżyseria">film kinowy</td></tr>
           </tbody>
         </table>
         <table class="credits">
           <caption>Reklama i&nbsp;formy własne</caption>
           <thead><tr><th scope="col">Projekt</th><th scope="col">Funkcja</th><th scope="col">Uwagi</th></tr></thead>
           <tbody>
-            <tr><td>Politechnika Gdańska</td><td>Występ w&nbsp;reklamie</td><td>spot wizerunkowy</td></tr>
-            <tr><td>Reklama komercyjna</td><td>Występ bez kwestii</td><td></td></tr>
-            <tr><td>Krótkie formy satyryczne</td><td>Aktor, współautor, montaż</td><td>2 lata, publikacje online</td></tr>
+            <tr><td data-label="Projekt">Politechnika Gdańska</td><td data-label="Funkcja">Występ w&nbsp;reklamie</td><td data-label="Uwagi">spot wizerunkowy</td></tr>
+            <tr><td data-label="Projekt">Reklama komercyjna</td><td data-label="Funkcja">Występ bez kwestii</td><td class="empty"></td></tr>
+            <tr><td data-label="Projekt">Krótkie formy satyryczne</td><td data-label="Funkcja">Aktor, współautor, montaż</td><td data-label="Uwagi">2 lata, publikacje online</td></tr>
           </tbody>
         </table>
       </div>
