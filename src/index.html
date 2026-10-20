@@ -21,7 +21,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:var(--s2);-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);hyphens:auto;overflow-wrap:break-word}
+body{margin:0;background:var(--bg);color:var(--ink);overflow-wrap:break-word}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-underline-offset:.2em}
 a:hover{color:var(--mark)}
@@ -82,7 +82,8 @@ section.alt{background:var(--bg-alt)}
 .gallery li.wide img{aspect-ratio:3/2}
 .cols{display:grid;gap:var(--s2);grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
 ul.plain{padding-left:1.1rem;margin:0}
-ul.plain li+li{margin-top:.35rem}
+ul.plain li{line-height:1.4}
+ul.plain li+li{margin-top:.7rem}
 footer{border-top:1px solid var(--line);padding-block:var(--s1);font-size:.85rem;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-1)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -253,7 +254,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
         <li class="wide"><figure><picture><source type="image/avif" srcset="img/pL1150307-480.avif 480w, img/pL1150307-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/pL1150307-480.webp 480w, img/pL1150307-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/pL1150307-480.jpg" width="480" height="319" loading="lazy" alt="Paweł Polanowski, sesja zdjęciowa 2026"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
         <li class="wide"><figure><picture><source type="image/avif" srcset="img/p06-480.avif 480w, img/p06-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p06-480.webp 480w, img/p06-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p06-480.jpg" width="480" height="320" loading="lazy" alt="Czarno-biały portret w marynarce przy ceglanej ścianie"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
       </ul>
-      <p class="cap">Wszystkie zdjęcia: Jakub Bartnicki, 2026. Kopiowanie i publikacja tylko za zgodą autora.</p>
     </div>
   </section>
 
