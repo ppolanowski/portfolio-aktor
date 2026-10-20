@@ -30,7 +30,7 @@ a:hover{color:var(--mark)}
 .skip:focus{left:var(--s0);top:var(--s0);background:var(--bg);padding:var(--s-1)}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--s0)}
 .stack>*+*{margin-block-start:var(--stack,var(--s0))}
-header.top{border-bottom:1px solid var(--line)}
+html{scroll-padding-top:5rem}header.top{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;background:var(--bg);transition:transform .25s ease}header.top.hide{transform:translateY(-100%)}
 header.top .wrap{display:flex;flex-wrap:wrap;gap:var(--s-1) var(--s1);align-items:baseline;justify-content:space-between;padding-block:var(--s0)}
 .brand{font-weight:700;text-decoration:none;letter-spacing:-.01em}
 nav ul{display:flex;flex-wrap:wrap;gap:0 var(--s0);list-style:none;margin:0;padding:0}
@@ -275,5 +275,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
   </div>
 </footer>
 <script>(()=>{const b=new Date(1999,10,8),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),10,8))a--;document.getElementById("wiek").textContent=a})()</script>
+<script>(function(){var h=document.querySelector('header.top'),y=scrollY;addEventListener('scroll',function(){var c=scrollY;if(c>y&&c>120)h.classList.add('hide');else if(c<y)h.classList.remove('hide');y=c},{passive:true});addEventListener('hashchange',function(){h.classList.add('hide')})})()</script>
 </body>
 </html>
