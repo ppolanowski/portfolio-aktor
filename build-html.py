@@ -30,7 +30,7 @@ def picture(n, w, h, sizes, hero=False):
     load = 'fetchpriority="high"' if hero else 'loading="lazy"'
     return (f'<picture><source type="image/avif" srcset="{srcset("avif")}" sizes="{sizes}">'
             f'<source type="image/webp" srcset="{srcset("webp")}" sizes="{sizes}">'
-            f'<img src="img/p{n}-480.jpg" width="{w}" height="{h}" {load} alt="{ALT[n]}"></picture>')
+            f'<img src="img/p{n}-480.jpg" width="{w}" height="{h}" {load} alt="{ALT.get(n, 'Paweł Polanowski, sesja zdjęciowa 2026')}"></picture>')
 
 
 hero = R[0]
