@@ -144,7 +144,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
         <tbody>
           <tr><th scope="row">Miasto</th><td>Warszawa, dojazd w&nbsp;całej Polsce</td></tr>
           <tr><th scope="row">Wzrost</th><td>183 cm</td></tr>
-          <tr><th scope="row">Przedział wiekowy gry</th><td>22–30 lat</td></tr>
+          <tr><th scope="row">Wiek</th><td><span id="wiek">26</span> lat</td></tr>
           <tr><th scope="row">Oczy</th><td>piwne</td></tr>
           <tr><th scope="row">Włosy</th><td>ciemne, krótkie</td></tr>
           <tr><th scope="row">Budowa</th><td>wysportowana</td></tr>
@@ -271,5 +271,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
     <span>Strona bez cookies i&nbsp;bez śledzenia.</span>
   </div>
 </footer>
+<script>(()=>{const b=new Date(1999,10,8),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),10,8))a--;document.getElementById("wiek").textContent=a})()</script>
 </body>
 </html>
