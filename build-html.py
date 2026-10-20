@@ -49,6 +49,7 @@ for r in R[1:]:
 # REVERSE_WIDE: poziome w odwrotnej kolejności (najlepsze najpierw)
 wi=[i for i,x in enumerate(items) if 'class="wide"' in x]
 wv=[items[i] for i in wi][::-1]
+wv=wv[:-7]+wv[-7:][::-1]  # ostatnie 7 poziomych w kolejności oryginalnej
 for i,x in zip(wi,wv): items[i]=x
 gallery = '<ul class="gallery">\n' + '\n'.join(items) + '\n      </ul>'
 
