@@ -46,6 +46,10 @@ for r in R[1:]:
     sizes = '(min-width:46rem) 30rem, 100vw' if wide else '(min-width:46rem) 15rem, 50vw'
     items.append(f'        <li{cls}><figure>{picture(r["n"], w, h, sizes)}'
                  f'<figcaption>{CREDIT}</figcaption></figure></li>')
+# REVERSE_WIDE: poziome w odwrotnej kolejności (najlepsze najpierw)
+wi=[i for i,x in enumerate(items) if 'class="wide"' in x]
+wv=[items[i] for i in wi][::-1]
+for i,x in zip(wi,wv): items[i]=x
 gallery = '<ul class="gallery">\n' + '\n'.join(items) + '\n      </ul>'
 
 s = open('src/index.html').read()
