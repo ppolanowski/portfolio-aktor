@@ -40,7 +40,7 @@ h1,h2,h3{line-height:1.15;margin:0;letter-spacing:-.01em}
 h1{font-size:clamp(2.2rem,1.4rem + 3.5vw,3.6rem);font-weight:750}
 h2{font-size:1.35rem;font-weight:700;padding-bottom:var(--s-1);border-bottom:2px solid var(--ink)}
 .lead{font-size:1.15rem;color:var(--muted);max-width:38ch;margin:0}
-.intro{display:grid;gap:var(--s2);padding-block:var(--s2) var(--s3);align-items:start}
+.intro{display:grid;gap:var(--s2);padding-block:var(--s2);align-items:start}
 @media (min-width:46rem){.intro{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
 .intro figure{margin:0}
 .intro figcaption,.cap{font-size:.8rem;color:var(--muted);margin-top:var(--s-1)}
@@ -53,7 +53,8 @@ h2{font-size:1.35rem;font-weight:700;padding-bottom:var(--s-1);border-bottom:2px
 .btn.primary{background:var(--ink);color:var(--bg)}
 .btn.primary:hover{background:var(--mark);border-color:var(--mark);color:#fff}
 section{padding-block:var(--s2)}
-@media (max-width:640px){main>section:first-child{padding-top:var(--s0)}header.top .wrap{padding-block:.75rem}}
+.stack>:last-child{margin-bottom:0}
+@media (max-width:640px){section,.intro{padding-block:var(--s1)}header.top .wrap{padding-block:.75rem}}
 section.alt{background:var(--bg-alt)}
 .credits{width:100%;border-collapse:collapse}
 .credits caption{text-align:left;font-weight:700;padding-block:var(--s0) var(--s-1)}
