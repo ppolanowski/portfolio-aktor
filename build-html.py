@@ -4,7 +4,7 @@ import json, re
 R = json.load(open('/home/deck/.hermes/cache/scratch/sizes.json'))
 CREDIT = 'fot. Jakub Bartnicki ©&nbsp;2026'
 ALT = {
-    '30': 'Paweł Polanowski, portret castingowy, biała koszula, ręce skrzyżowane, ciemne tło',
+    'L1150313': 'Paweł Polanowski, portret castingowy, biała koszula, ręce skrzyżowane, ciemne tło',
     '29': 'Portret castingowy, biała koszula, ręce skrzyżowane',
     '23': 'Czarno-biały portret, biała koszula, dłoń przy brodzie',
     '09': 'Portret w koszuli w paski, ciepłe światło',

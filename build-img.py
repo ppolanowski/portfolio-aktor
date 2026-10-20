@@ -1,6 +1,6 @@
 from PIL import Image;import subprocess,json
 S='/home/deck/.hermes/cache/scratch/rog/';O='src/img/'
-sel=["30", "L1150313", "L1150311", "L1150318", "09", "08", "07", "11", "L1008181", "13", "10", "L1008046", "L1008248", "L1150135", "23", "L1008178", "01", "L1008114", "15", "19", "20", "L1150076", "24", "26", "27", "25", "L1150307", "28", "06", "12", "L1008217", "14", "L1008213", "21", "03", "L1008121", "L1150130", "17", "L1150177", "05", "18", "02", "04", "22", "16"]
+sel=["L1150313", "L1150318", "09", "08", "07", "11", "L1008181", "L1008046", "L1008248", "L1150135", "23", "L1008178", "01", "L1008114", "15", "19", "20", "L1150076", "24", "27", "L1150307", "06", "12", "L1008217", "L1008213", "21", "03", "L1008121", "L1150130", "L1150177", "05", "18", "02", "04", "22", "16"]
 out=[]
 for n in sel:
   f=S+(f'portfolio-{n}.jpg' if n.isdigit() else n+'.jpg');im=Image.open(f);icc=im.info.get('icc_profile');im=im.convert('RGB')
@@ -13,5 +13,5 @@ for n in sel:
     subprocess.run(['avifenc','-q','55','-s','6',j,j[:-3]+'avif'],capture_output=True)
     r[w]=x.size
   out.append(r)
-im=Image.open(S+'portfolio-30.jpg').convert('RGB');w,h=im.size;c=im.crop((0,int(h*.12),w,int(h*.12)+int(w*630/1200))).resize((1200,630));c.save(O+'og.jpg',quality=80)
+im=Image.open(S+'L1150313.jpg').convert('RGB');w,h=im.size;c=im.crop((0,int(h*.12),w,int(h*.12)+int(w*630/1200))).resize((1200,630));c.save(O+'og.jpg',quality=80)
 json.dump(out,open('/home/deck/.hermes/cache/scratch/sizes.json','w'));print([(r['n'],r[480],r[960]) for r in out])
