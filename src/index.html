@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paweł Polanowski – aktor, Warszawa</title>
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+<style>
+:root{
+  color-scheme:light dark;
+  --ink:light-dark(#151617,#ececea);
+  --muted:light-dark(#5b5f63,#a3a6a8);
+  --line:light-dark(#d9dbdc,#33363a);
+  --bg:light-dark(#ffffff,#111213);
+  --bg-alt:light-dark(#f2f3f3,#1a1b1d);
+  --mark:light-dark(#b3261e,#ff6b5f);
+  --s-1:.5rem;--s0:1rem;--s1:1.5rem;--s2:2.25rem;--s3:3.5rem;
+  --wrap:68rem;
+  font:1rem/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:var(--s2);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);hyphens:auto;overflow-wrap:break-word}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:.2em}
+a:hover{color:var(--mark)}
+:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:var(--s0);top:var(--s0);background:var(--bg);padding:var(--s-1)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--s0)}
+.stack>*+*{margin-block-start:var(--stack,var(--s0))}
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:var(--s-1) var(--s1);align-items:baseline;justify-content:space-between;padding-block:var(--s0)}
+.brand{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+nav ul{display:flex;flex-wrap:wrap;gap:0 var(--s0);list-style:none;margin:0;padding:0}
+nav a{display:inline-block;padding-block:.6rem;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink);text-decoration:underline}
+h1,h2,h3{line-height:1.15;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,1.4rem + 3.5vw,3.6rem);font-weight:750}
+h2{font-size:1.35rem;font-weight:700;padding-bottom:var(--s-1);border-bottom:2px solid var(--ink)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:38ch;margin:0}
+.intro{display:grid;gap:var(--s2);padding-block:var(--s2) var(--s3);align-items:start}
+@media (min-width:46rem){.intro{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+.intro figure{margin:0}
+.intro figcaption,.cap{font-size:.8rem;color:var(--muted);margin-top:var(--s-1)}
+.spec{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.spec th,.spec td{text-align:left;padding:.55rem .5rem .55rem 0;border-bottom:1px solid var(--line);vertical-align:top}
+.spec th{width:42%;font-weight:600;color:var(--muted);font-size:.9rem}
+.spec tr:hover td,.spec tr:hover th{background:var(--bg-alt)}
+.actions{display:flex;flex-wrap:wrap;gap:var(--s-1)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;border:2px solid var(--ink);text-decoration:none;font-weight:600}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--mark);border-color:var(--mark);color:#fff}
+section{padding-block:var(--s2)}
+section.alt{background:var(--bg-alt)}
+.credits{width:100%;border-collapse:collapse}
+.credits caption{text-align:left;font-weight:700;padding-block:var(--s0) var(--s-1)}
+.credits th,.credits td{text-align:left;padding:.6rem .75rem .6rem 0;border-bottom:1px solid var(--line);vertical-align:top}
+.credits thead th{font-size:.85rem;color:var(--muted);font-weight:600}
+.credits tbody tr:hover{background:var(--bg)}
+.scroll{overflow-x:auto}
+.gallery{display:grid;gap:var(--s0);grid-template-columns:repeat(auto-fill,minmax(min(100%,9.5rem),1fr));list-style:none;padding:0;margin:0}
+.gallery li.wide{grid-column:1/-1}
+.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--line)}
+.gallery li.wide img{aspect-ratio:21/9;object-position:50% 60%}
+.cols{display:grid;gap:var(--s2);grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+ul.plain{padding-left:1.1rem;margin:0}
+ul.plain li+li{margin-top:.35rem}
+footer{border-top:1px solid var(--line);padding-block:var(--s1);font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-1)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  header.top nav,.actions,.gallery,footer,.skip{display:none}
+  body{color:#000;background:#fff;font-size:11pt}
+  section,.intro{padding-block:.6rem}
+  section.alt{background:none}
+  .intro{grid-template-columns:1fr 2fr}
+  a[href^="mailto"]::after{content:" (" attr(href) ")"}
+  table,tr{break-inside:avoid}
+  @page{margin:1.5cm}
+}
+</style>
+<meta name="description" content="Paweł Polanowski – aktor z Warszawy. Zdjęcia, warunki, doświadczenie na planie, szkolenie i kontakt castingowy.">
+<link rel="canonical" href="https://polanowski.ovh/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Paweł Polanowski – aktor">
+<meta property="og:description" content="Aktor z Warszawy. Zdjęcia, warunki, doświadczenie, kontakt.">
+<meta property="og:url" content="https://polanowski.ovh/">
+<meta property="og:image" content="https://polanowski.ovh/img/og.jpg">
+<meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Paweł Polanowski","jobTitle":"Aktor","url":"https://polanowski.ovh/","image":"https://polanowski.ovh/img/portret-480.jpg","height":"183 cm","homeLocation":{"@type":"Place","name":"Warszawa"},"alumniOf":{"@type":"EducationalOrganization","name":"Warszawska Szkoła Filmowa"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">Paweł Polanowski</a>
+    <nav aria-label="Główna">
+      <ul>
+        <li><a href="#zdjecia">Zdjęcia</a></li>
+        <li><a href="#doswiadczenie">Doświadczenie</a></li>
+        <li><a href="#szkolenie">Szkolenie</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap intro">
+    <figure>
+      <picture>
+        <source type="image/avif" srcset="img/portret-480.avif">
+        <source type="image/webp" srcset="img/portret-480.webp">
+        <img src="img/portret-480.jpg" width="480" height="600" fetchpriority="high" alt="Paweł Polanowski, portret do pasa, ciemny t-shirt, pod betonowym wiaduktem">
+      </picture>
+      <figcaption>Wrzesień 2026 · fot. @ciemnia_schron</figcaption>
+    </figure>
+
+    <div class="stack" style="--stack:var(--s1)">
+      <div class="stack" style="--stack:var(--s-1)">
+        <h1>Paweł Polanowski</h1>
+        <p class="lead">Aktor. Warszawa. Film, serial, reklama.</p>
+      </div>
+
+      <table class="spec">
+        <caption class="skip">Warunki i&nbsp;dane castingowe</caption>
+        <tbody>
+          <tr><th scope="row">Miasto</th><td>Warszawa, dojazd w&nbsp;całej Polsce</td></tr>
+          <tr><th scope="row">Wzrost</th><td>183 cm</td></tr>
+          <tr><th scope="row">Przedział wiekowy gry</th><td>22–30 lat</td></tr>
+          <tr><th scope="row">Oczy</th><td>piwne</td></tr>
+          <tr><th scope="row">Włosy</th><td>ciemne, krótkie</td></tr>
+          <tr><th scope="row">Budowa</th><td>wysportowana</td></tr>
+          <tr><th scope="row">Języki</th><td>polski (ojczysty), angielski (podstawowy, w&nbsp;nauce)</td></tr>
+          <tr><th scope="row">Agencja</th><td>brak, kontakt bezpośredni</td></tr>
+        </tbody>
+      </table>
+
+      <div class="actions">
+        <a class="btn primary" href="mailto:kontakt@polanowski.ovh">Napisz w&nbsp;sprawie castingu</a>
+        <a class="btn" href="#doswiadczenie">Doświadczenie</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="zdjecia" class="alt" aria-labelledby="h-zdjecia">
+    <div class="wrap stack">
+      <h2 id="h-zdjecia">Zdjęcia</h2>
+      <ul class="gallery">
+        <li>
+          <picture>
+            <source type="image/avif" srcset="img/portret-pelny-480.avif 480w, img/portret-pelny-960.avif 960w" sizes="(min-width:46rem) 22rem, 100vw">
+            <source type="image/webp" srcset="img/portret-pelny-480.webp 480w, img/portret-pelny-960.webp 960w" sizes="(min-width:46rem) 22rem, 100vw">
+            <img src="img/portret-pelny-480.jpg" width="480" height="600" loading="lazy" alt="Postać do kolan, mundurowe spodnie, rekwizyt filmowy">
+          </picture>
+          <p class="cap">Postać</p>
+        </li>
+        <li>
+          <picture>
+            <source type="image/avif" srcset="img/zwiad-480.avif 480w, img/zwiad-960.avif 960w" sizes="(min-width:46rem) 22rem, 100vw">
+            <source type="image/webp" srcset="img/zwiad-480.webp 480w, img/zwiad-960.webp 960w" sizes="(min-width:46rem) 22rem, 100vw">
+            <img src="img/zwiad-480.jpg" width="480" height="600" loading="lazy" alt="Czarno-białe ujęcie pod wiaduktem, postać w smudze światła">
+          </picture>
+          <p class="cap">Scena: zwiad</p>
+        </li>
+        <li>
+          <picture>
+            <source type="image/avif" srcset="img/sciezka-480.avif 480w, img/sciezka-960.avif 960w" sizes="(min-width:46rem) 22rem, 100vw">
+            <source type="image/webp" srcset="img/sciezka-480.webp 480w, img/sciezka-960.webp 960w" sizes="(min-width:46rem) 22rem, 100vw">
+            <img src="img/sciezka-480.jpg" width="480" height="600" loading="lazy" alt="Czarno-białe ujęcie, sylwetka idąca pasem światła pod wiaduktem">
+          </picture>
+          <p class="cap">Ruch</p>
+        </li>
+        <li class="wide">
+          <picture>
+            <source type="image/avif" srcset="img/sylwetka-480.avif 480w, img/sylwetka-960.avif 960w" sizes="(min-width:46rem) 45rem, 100vw">
+            <source type="image/webp" srcset="img/sylwetka-480.webp 480w, img/sylwetka-960.webp 960w" sizes="(min-width:46rem) 45rem, 100vw">
+            <img src="img/sylwetka-960.jpg" width="960" height="640" loading="lazy" alt="Czarno-biały plan ogólny, sylwetka na tle betonowych filarów">
+          </picture>
+          <p class="cap">Plan ogólny</p>
+        </li>
+      </ul>
+      <p class="cap">Sesja wrzesień 2026. Neutralne portrety castingowe w&nbsp;przygotowaniu.</p>
+    </div>
+  </section>
+
+  <section id="doswiadczenie" aria-labelledby="h-dosw">
+    <div class="wrap stack">
+      <h2 id="h-dosw">Doświadczenie</h2>
+      <div class="scroll" role="region" aria-label="Tabela doświadczenia" tabindex="0">
+        <table class="credits">
+          <caption>Film i&nbsp;serial</caption>
+          <thead><tr><th scope="col">Produkcja</th><th scope="col">Rola</th><th scope="col">Produkcja / reżyseria</th></tr></thead>
+          <tbody>
+            <tr><td><cite>Sløborn</cite> (serial)</td><td>Żołnierz, epizod</td><td>ZDF, reż. Christian Alvart</td></tr>
+            <tr><td><cite>Sprawiedliwi – Wydział Kryminalny</cite></td><td>Epizod</td><td>serial TV</td></tr>
+            <tr><td><cite>Furioza</cite></td><td>Statysta</td><td>film kinowy</td></tr>
+          </tbody>
+        </table>
+        <table class="credits">
+          <caption>Reklama i&nbsp;formy własne</caption>
+          <thead><tr><th scope="col">Projekt</th><th scope="col">Funkcja</th><th scope="col">Uwagi</th></tr></thead>
+          <tbody>
+            <tr><td>Politechnika Gdańska</td><td>Występ w&nbsp;reklamie</td><td>spot wizerunkowy</td></tr>
+            <tr><td>Reklama komercyjna</td><td>Występ bez kwestii</td><td></td></tr>
+            <tr><td>Krótkie formy satyryczne</td><td>Aktor, współautor, montaż</td><td>2 lata, publikacje online</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">Na planie <cite>Sløborn</cite> także koordynacja grupy statystów.</p>
+    </div>
+  </section>
+
+  <section id="szkolenie" class="alt" aria-labelledby="h-szk">
+    <div class="wrap cols">
+      <div class="stack">
+        <h2 id="h-szk">Szkolenie</h2>
+        <ul class="plain">
+          <li>Warszawska Szkoła Filmowa, Studium Wokalno-Aktorskie (w&nbsp;trakcie)</li>
+          <li>Improwizacja muzyczna, zajęcia w&nbsp;ramach studium</li>
+          <li>Akrobatyka, zajęcia indywidualne</li>
+          <li>Gimnazjum o&nbsp;profilu teatralnym</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <h2>Umiejętności</h2>
+        <ul class="plain">
+          <li>Śpiew</li>
+          <li>Improwizacja</li>
+          <li>Trening siłowy, sprawność fizyczna</li>
+          <li>Praca z&nbsp;rekwizytem broni (scena)</li>
+          <li>Montaż wideo, praca przy formach własnych</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <h2>O&nbsp;mnie</h2>
+        <p>Aktorstwo towarzyszy mi od szkoły z&nbsp;profilem teatralnym. Pierwsze doświadczenia na planie zdobyłem przy międzynarodowej produkcji <cite>Sløborn</cite>. Dziś uczę się w&nbsp;Warszawskiej Szkole Filmowej i&nbsp;szukam ról w&nbsp;filmie i&nbsp;serialu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" aria-labelledby="h-kontakt">
+    <div class="wrap stack">
+      <h2 id="h-kontakt">Kontakt</h2>
+      <p>Castingi, zdjęcia próbne, współpraca: <a href="mailto:kontakt@polanowski.ovh">kontakt@polanowski.ovh</a></p>
+      <p class="cap">Odpowiadam zwykle w&nbsp;ciągu doby. Agencji jeszcze nie mam.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Paweł Polanowski</span>
+    <span>Strona bez cookies i&nbsp;bez śledzenia.</span>
+  </div>
+</footer>
+</body>
+</html>
