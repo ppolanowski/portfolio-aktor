@@ -60,10 +60,12 @@ section.alt{background:var(--bg-alt)}
 .credits thead th{font-size:.85rem;color:var(--muted);font-weight:600}
 .credits tbody tr:hover{background:var(--bg)}
 .scroll{overflow-x:auto}
-.gallery{display:grid;gap:var(--s0);grid-template-columns:repeat(auto-fill,minmax(min(100%,9.5rem),1fr));list-style:none;padding:0;margin:0}
-.gallery li.wide{grid-column:1/-1}
-.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--line)}
-.gallery li.wide img{aspect-ratio:21/9;object-position:50% 60%}
+.gallery{display:grid;gap:var(--s0);grid-template-columns:repeat(auto-fill,minmax(max(9rem,22%),1fr));grid-auto-flow:dense;list-style:none;padding:0;margin:0}
+.gallery li.wide{grid-column:span 2}
+.gallery figure{margin:0}
+.gallery figcaption{font-size:.72rem;color:var(--muted);margin-top:.3rem}
+.gallery img{width:100%;aspect-ratio:2/3;object-fit:cover;background:var(--line)}
+.gallery li.wide img{aspect-ratio:3/2}
 .cols{display:grid;gap:var(--s2);grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
 ul.plain{padding-left:1.1rem;margin:0}
 ul.plain li+li{margin-top:.35rem}
@@ -91,7 +93,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
 <meta property="og:image" content="https://polanowski.ovh/img/og.jpg">
 <meta property="og:locale" content="pl_PL">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Paweł Polanowski","jobTitle":"Aktor","url":"https://polanowski.ovh/","image":"https://polanowski.ovh/img/portret-480.jpg","height":"183 cm","homeLocation":{"@type":"Place","name":"Warszawa"},"alumniOf":{"@type":"EducationalOrganization","name":"Warszawska Szkoła Filmowa"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Paweł Polanowski","jobTitle":"Aktor","url":"https://polanowski.ovh/","image":"https://polanowski.ovh/img/p30-480.jpg","height":"183 cm","homeLocation":{"@type":"Place","name":"Warszawa"},"alumniOf":{"@type":"EducationalOrganization","name":"Warszawska Szkoła Filmowa"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Przejdź do treści</a>
@@ -112,12 +114,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
 <main id="main" tabindex="-1">
   <div class="wrap intro">
     <figure>
-      <picture>
-        <source type="image/avif" srcset="img/portret-480.avif">
-        <source type="image/webp" srcset="img/portret-480.webp">
-        <img src="img/portret-480.jpg" width="480" height="600" fetchpriority="high" alt="Paweł Polanowski, portret do pasa, ciemny t-shirt, pod betonowym wiaduktem">
-      </picture>
-      <figcaption>Wrzesień 2026 · fot. @ciemnia_schron</figcaption>
+      <picture><source type="image/avif" srcset="img/p30-480.avif 480w, img/p30-960.avif 960w" sizes="(min-width:46rem) 28rem, 100vw"><source type="image/webp" srcset="img/p30-480.webp 480w, img/p30-960.webp 960w" sizes="(min-width:46rem) 28rem, 100vw"><img src="img/p30-480.jpg" width="480" height="721" fetchpriority="high" alt="Paweł Polanowski, portret castingowy, biała koszula, ręce skrzyżowane, ciemne tło"></picture>
+      <figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption>
     </figure>
 
     <div class="stack" style="--stack:var(--s1)">
@@ -142,7 +140,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
 
       <div class="actions">
         <a class="btn primary" href="mailto:kontakt@polanowski.ovh">Napisz w&nbsp;sprawie castingu</a>
-        <a class="btn" href="#doswiadczenie">Doświadczenie</a>
+        <a class="btn" href="#zdjecia">Zdjęcia</a>
       </div>
     </div>
   </div>
@@ -151,40 +149,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
     <div class="wrap stack">
       <h2 id="h-zdjecia">Zdjęcia</h2>
       <ul class="gallery">
-        <li>
-          <picture>
-            <source type="image/avif" srcset="img/portret-pelny-480.avif 480w, img/portret-pelny-960.avif 960w" sizes="(min-width:46rem) 22rem, 100vw">
-            <source type="image/webp" srcset="img/portret-pelny-480.webp 480w, img/portret-pelny-960.webp 960w" sizes="(min-width:46rem) 22rem, 100vw">
-            <img src="img/portret-pelny-480.jpg" width="480" height="600" loading="lazy" alt="Postać do kolan, mundurowe spodnie, rekwizyt filmowy">
-          </picture>
-          <p class="cap">Postać</p>
-        </li>
-        <li>
-          <picture>
-            <source type="image/avif" srcset="img/zwiad-480.avif 480w, img/zwiad-960.avif 960w" sizes="(min-width:46rem) 22rem, 100vw">
-            <source type="image/webp" srcset="img/zwiad-480.webp 480w, img/zwiad-960.webp 960w" sizes="(min-width:46rem) 22rem, 100vw">
-            <img src="img/zwiad-480.jpg" width="480" height="600" loading="lazy" alt="Czarno-białe ujęcie pod wiaduktem, postać w smudze światła">
-          </picture>
-          <p class="cap">Scena: zwiad</p>
-        </li>
-        <li>
-          <picture>
-            <source type="image/avif" srcset="img/sciezka-480.avif 480w, img/sciezka-960.avif 960w" sizes="(min-width:46rem) 22rem, 100vw">
-            <source type="image/webp" srcset="img/sciezka-480.webp 480w, img/sciezka-960.webp 960w" sizes="(min-width:46rem) 22rem, 100vw">
-            <img src="img/sciezka-480.jpg" width="480" height="600" loading="lazy" alt="Czarno-białe ujęcie, sylwetka idąca pasem światła pod wiaduktem">
-          </picture>
-          <p class="cap">Ruch</p>
-        </li>
-        <li class="wide">
-          <picture>
-            <source type="image/avif" srcset="img/sylwetka-480.avif 480w, img/sylwetka-960.avif 960w" sizes="(min-width:46rem) 45rem, 100vw">
-            <source type="image/webp" srcset="img/sylwetka-480.webp 480w, img/sylwetka-960.webp 960w" sizes="(min-width:46rem) 45rem, 100vw">
-            <img src="img/sylwetka-960.jpg" width="960" height="640" loading="lazy" alt="Czarno-biały plan ogólny, sylwetka na tle betonowych filarów">
-          </picture>
-          <p class="cap">Plan ogólny</p>
-        </li>
+        <li><figure><picture><source type="image/avif" srcset="img/p29-480.avif 480w, img/p29-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p29-480.webp 480w, img/p29-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p29-480.jpg" width="480" height="721" loading="lazy" alt="Portret castingowy, biała koszula, ręce skrzyżowane"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p23-480.avif 480w, img/p23-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p23-480.webp 480w, img/p23-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p23-480.jpg" width="480" height="721" loading="lazy" alt="Czarno-biały portret, biała koszula, dłoń przy brodzie"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p09-480.avif 480w, img/p09-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p09-480.webp 480w, img/p09-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p09-480.jpg" width="480" height="720" loading="lazy" alt="Portret w koszuli w paski, ciepłe światło"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p06-480.avif 480w, img/p06-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p06-480.webp 480w, img/p06-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p06-480.jpg" width="480" height="320" loading="lazy" alt="Czarno-biały portret w marynarce przy ceglanej ścianie"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p15-480.avif 480w, img/p15-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p15-480.webp 480w, img/p15-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p15-480.jpg" width="480" height="721" loading="lazy" alt="Portret nad morzem, ciemne okulary, czarny t-shirt"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p20-480.avif 480w, img/p20-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p20-480.webp 480w, img/p20-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p20-480.jpg" width="480" height="319" loading="lazy" alt="Siedząc na progu kampera, biała koszula"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p21-480.avif 480w, img/p21-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p21-480.webp 480w, img/p21-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p21-480.jpg" width="480" height="721" loading="lazy" alt="Czarno-biała postać w białej koszuli w betonowym wnętrzu"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p22-480.avif 480w, img/p22-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p22-480.webp 480w, img/p22-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p22-480.jpg" width="480" height="319" loading="lazy" alt="Czarno-białe ujęcie, pochylona głowa, dłoń przy twarzy"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p28-480.avif 480w, img/p28-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p28-480.webp 480w, img/p28-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p28-480.jpg" width="480" height="319" loading="lazy" alt="Plan amerykański na ciemnym tle, biała koszula"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p05-480.avif 480w, img/p05-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p05-480.webp 480w, img/p05-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p05-480.jpg" width="480" height="320" loading="lazy" alt="Czarno-białe ujęcie, siedząc na skarpie"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p11-480.avif 480w, img/p11-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p11-480.webp 480w, img/p11-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p11-480.jpg" width="480" height="720" loading="lazy" alt="Za szybą kawiarni, przy stoliku"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p13-480.avif 480w, img/p13-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p13-480.webp 480w, img/p13-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p13-480.jpg" width="480" height="720" loading="lazy" alt="Czarno-biały plan ogólny pod wiaduktem, pas światła"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li><figure><picture><source type="image/avif" srcset="img/p10-480.avif 480w, img/p10-960.avif 960w" sizes="(min-width:46rem) 15rem, 50vw"><source type="image/webp" srcset="img/p10-480.webp 480w, img/p10-960.webp 960w" sizes="(min-width:46rem) 15rem, 50vw"><img src="img/p10-480.jpg" width="480" height="720" loading="lazy" alt="W kawiarni, marynarka, kadr przez szybę"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p24-480.avif 480w, img/p24-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p24-480.webp 480w, img/p24-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p24-480.jpg" width="480" height="319" loading="lazy" alt="Czarno-biały plan ogólny w podziemnym korytarzu"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p27-480.avif 480w, img/p27-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p27-480.webp 480w, img/p27-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p27-480.jpg" width="480" height="319" loading="lazy" alt="Postać w snopie światła na ciemnej scenie"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
+        <li class="wide"><figure><picture><source type="image/avif" srcset="img/p19-480.avif 480w, img/p19-960.avif 960w" sizes="(min-width:46rem) 30rem, 100vw"><source type="image/webp" srcset="img/p19-480.webp 480w, img/p19-960.webp 960w" sizes="(min-width:46rem) 30rem, 100vw"><img src="img/p19-480.jpg" width="480" height="319" loading="lazy" alt="Przy kamperze, plan ogólny"></picture><figcaption>fot. Jakub Bartnicki ©&nbsp;2026</figcaption></figure></li>
       </ul>
-      <p class="cap">Sesja wrzesień 2026. Neutralne portrety castingowe w&nbsp;przygotowaniu.</p>
+      <p class="cap">Wszystkie zdjęcia: Jakub Bartnicki, 2026. Kopiowanie i publikacja tylko za zgodą autora.</p>
     </div>
   </section>
 
@@ -254,7 +236,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Paweł Polanowski</span>
+    <span>© 2026 Paweł Polanowski · zdjęcia © 2026 Jakub Bartnicki, wszelkie prawa zastrzeżone</span>
     <span>Strona bez cookies i&nbsp;bez śledzenia.</span>
   </div>
 </footer>
