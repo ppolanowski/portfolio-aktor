@@ -100,6 +100,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
   table,tr{break-inside:avoid}
   @page{margin:1.5cm}
 }
+dialog.lb{border:0;padding:0;background:#000e;max-width:none;max-height:none;width:100vw;height:100dvh;color:#fff}
+dialog.lb::backdrop{background:#000}
+dialog.lb .st{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:.5rem;padding:3rem 1rem 1rem}
+dialog.lb img{max-width:100%;max-height:calc(100dvh - 6rem);object-fit:contain}
+dialog.lb button{position:absolute;background:#0008;color:#fff;border:0;font-size:2rem;width:48px;height:48px;border-radius:50%;cursor:pointer}
+dialog.lb .x{top:.5rem;right:.5rem}dialog.lb .p{left:.5rem;top:50%}dialog.lb .n{right:.5rem;top:50%}
+.gallery img,.intro figure img{cursor:zoom-in}
 </style>
 <meta name="description" content="Paweł Polanowski – aktor z Warszawy. Zdjęcia, warunki, doświadczenie na planie, szkolenie i kontakt castingowy.">
 <link rel="canonical" href="https://polanowski.ovh/">
@@ -271,5 +278,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(-
 </footer>
 <script>(()=>{const b=new Date(1999,10,8),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),10,8))a--;document.getElementById("wiek").textContent=a})()</script>
 <script>(function(){var h=document.querySelector('header.top'),y=scrollY;addEventListener('scroll',function(){var c=scrollY;if(c>y&&c>120)h.classList.add('hide');else if(c<y)h.classList.remove('hide');y=c},{passive:true});addEventListener('hashchange',function(){h.classList.add('hide')})})()</script>
+<dialog class="lb" aria-label="Podgląd zdjęcia"><div class="st"><img alt=""><span></span></div><button class="x" aria-label="Zamknij">×</button><button class="p" aria-label="Poprzednie">‹</button><button class="n" aria-label="Następne">›</button></dialog>
+<script>(function(){var d=document.querySelector('dialog.lb'),im=d.querySelector('img'),cp=d.querySelector('span'),L=[].slice.call(document.querySelectorAll('.intro figure img,.gallery img')),i=0;
+function show(k){i=(k+L.length)%L.length;var a=L[i];im.src=a.currentSrc&&/\.(avif|webp)/.test(a.currentSrc)?a.currentSrc:a.src.replace('-480.','-960.');im.src=a.src.replace('-480.','-960.');im.alt=a.alt;var f=a.closest('figure').querySelector('figcaption');cp.textContent=f?f.textContent:''}
+L.forEach(function(a,k){a.addEventListener('click',function(){show(k);d.showModal()})});
+d.querySelector('.x').onclick=function(){d.close()};d.querySelector('.p').onclick=function(){show(i-1)};d.querySelector('.n').onclick=function(){show(i+1)};
+d.addEventListener('click',function(e){if(e.target===d||e.target.className=='st')d.close()});
+addEventListener('keydown',function(e){if(!d.open)return;if(e.key=='ArrowLeft')show(i-1);if(e.key=='ArrowRight')show(i+1)})})()</script>
 </body>
 </html>
