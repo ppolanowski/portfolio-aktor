@@ -27,8 +27,8 @@ html{scroll-padding-top:var(--s2);-webkit-text-size-adjust:100%;text-size-adjust
 body{margin:0;background:var(--bg);color:var(--ink);overflow-wrap:break-word}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-underline-offset:.2em}
-a:hover{color:var(--mark)}
-:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+a:hover{color:var(--ink);text-decoration:underline}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:var(--s0);top:var(--s0);background:var(--bg);padding:var(--s-1)}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--s0)}
@@ -54,7 +54,7 @@ h2{font-size:1.35rem;font-weight:700;padding-bottom:var(--s-1);border-bottom:2px
 .actions{display:flex;flex-wrap:wrap;gap:var(--s-1)}
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;border:2px solid var(--ink);text-decoration:none;font-weight:600}
 .btn.primary{background:var(--ink);color:var(--bg)}
-.btn.primary:hover{background:var(--mark);border-color:var(--mark);color:#fff}
+.btn.primary:hover{background:var(--muted);border-color:var(--muted);color:var(--bg)}.btn:not(.primary):hover{text-decoration:underline}
 section{padding-block:var(--s2)}
 .stack>:last-child{margin-bottom:0}
 @media (max-width:640px){section,.intro{padding-block:var(--s1)}header.top .wrap{padding-block:.5rem;gap:0}header.top nav a{padding-block:.35rem;font-size:.92rem}header.top nav ul{gap:0 .9rem}}
