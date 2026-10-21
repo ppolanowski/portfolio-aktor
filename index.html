@@ -287,6 +287,7 @@ dialog.lb .x{top:.5rem;right:.5rem}dialog.lb .p{left:.5rem;top:50%}dialog.lb .n{
   </div>
 </footer>
 <script>(()=>{const b=new Date(1999,10,8),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),10,8))a--;document.getElementById("wiek").textContent=a})()</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;var t=document.getElementById(a.getAttribute("href").slice(1));if(!t)return;e.preventDefault();t.scrollIntoView();history.replaceState(null,"",location.pathname+location.search)});</script>
 <script>(function(){var h=document.querySelector('header.top'),y=scrollY;addEventListener('scroll',function(){var c=scrollY;if(c>y&&c>120)h.classList.add('hide');else if(c<y)h.classList.remove('hide');y=c},{passive:true});addEventListener('hashchange',function(){h.classList.add('hide')})})()</script>
 <dialog class="lb" aria-label="Podgląd zdjęcia"><div class="st"><img alt=""><span></span></div><button class="x" aria-label="Zamknij">×</button><button class="p" aria-label="Poprzednie">‹</button><button class="n" aria-label="Następne">›</button></dialog>
 <script>(function(){var d=document.querySelector('dialog.lb'),im=d.querySelector('img'),cp=d.querySelector('span'),L=[].slice.call(document.querySelectorAll('.intro figure img,.gallery img')),i=0;
